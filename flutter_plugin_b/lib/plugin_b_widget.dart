@@ -12,7 +12,7 @@ class PluginBWidget extends StatelessWidget {
       width: double.infinity,
       child: Center(
         child: Text(
-          S.of(context).text,
+          S.of(context).close,
           style: const TextStyle(
               fontSize: 13,
               decoration: TextDecoration.none,

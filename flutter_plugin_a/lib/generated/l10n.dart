@@ -38,11 +38,21 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `plugin_a`
+  /// `plugin_a1111`
   String get text {
     return Intl.message(
-      'plugin_a',
+      'plugin_a1111',
       name: 'text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit`
+  String get edit {
+    return Intl.message(
+      'Edit',
+      name: 'edit',
       desc: '',
       args: [],
     );

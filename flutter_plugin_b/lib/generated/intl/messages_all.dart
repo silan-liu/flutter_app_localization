@@ -64,3 +64,20 @@ MessageLookupByLibrary? _findGeneratedMessagesFor(String locale) {
   if (actualLocale == null) return null;
   return _findExact(actualLocale);
 }
+
+
+Future<MessageLookup?> getMessageLookup(String localeName) async {
+    var availableLocale = Intl.verifiedLocale(
+        localeName, (locale) => _deferredLibraries[locale] != null,
+        onFailure: (_) => null);
+    if (availableLocale == null) {
+      return new Future.value(null);
+    }
+    var lib = _deferredLibraries[availableLocale];
+    await (lib == null ? new Future.value(null) : lib());
+  
+    final messageLookup = new CompositeMessageLookup();
+    messageLookup.addLocale(availableLocale, _findGeneratedMessagesFor);
+  
+    return messageLookup;
+  }

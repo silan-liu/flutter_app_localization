@@ -3,8 +3,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:flutter_plugin_a/plugin_a_widget.dart';
 import 'package:flutter_plugin_b/plugin_b_widget.dart';
+import 'package:flutter_plugin_c/plugin_c_widget.dart';
+
 import 'package:flutter_plugin_a/generated/l10n.dart' as plugin_a_localization;
 import 'package:flutter_plugin_b/generated/l10n.dart'as plugin_b_localization;
+import 'package:flutter_plugin_c/generated/l10n.dart'as plugin_c_localization;
 
 void main() {
   runApp(const MyApp());
@@ -33,6 +36,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: const [
         plugin_a_localization.S.delegate,
         plugin_b_localization.S.delegate,
+        plugin_c_localization.S.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate
@@ -119,6 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
             const PluginAWidget(),
             const PluginBWidget(),
+            const PluginCWidget(),
 
             const Text(
               'You have pushed the button this many times:',
